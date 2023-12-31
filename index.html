@@ -7,43 +7,58 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <header class="animated-header">
-      <h1 class="main-heading">Happy Birthday FIZA</h1>
-    </header>
+    <div id="contentContainer" style="display: none">
+      <header class="animated-header">
+        <h1 class="main-heading">Happy Birthday FIZA</h1>
+      </header>
 
-    <section class="message animated-message">
-      <p>SHONNA</p>
-      <p>
-        Today is a celebration of you—your kindness, your beauty, and your
-        loving heart.
-      </p>
-      <p>May this year be filled with joy, love, and countless blessings.</p>
-      <p>Bss ye sbb padh krr fool mat jana tum</p>
+      <section class="message animated-message">
+        <p>SHONNA</p>
+        <p>
+          Today is a celebration of you—your kindness, your beauty, and your
+          loving heart.
+        </p>
+        <p>May this year be filled with joy, love, and countless blessings.</p>
+        <p>Bss ye sbb padh krr fool mat jana tum</p>
 
-      <div id="countdown" class="countdown"></div>
-    </section>
+        <div id="countdown" class="countdown"></div>
+      </section>
 
-    <footer class="animated-footer">
-      <p>With all my love,</p>
-      <p>Your JANNA</p>
-    </footer>
+      <footer class="animated-footer">
+        <p>With all my love,</p>
+        <p>Your JANNA</p>
+      </footer>
+    </div>
 
     <script>
-      // Inline JavaScript for countdown
-      function countdown() {
+      // Inline JavaScript for countdown and delayed content display
+      function displayContent() {
+        // Check if the current time is past 12 AM
         const now = new Date();
-        const birthday = new Date("YYYY-MM-DD"); // Replace with her birthday in YYYY-MM-DD format
-        const difference = birthday - now;
+        if (now.getHours() >= 0 && now.getHours() < 12) {
+          // Countdown function
+          function countdown() {
+            const birthday = new Date("YYYY-MM-DD"); // Replace with her birthday in YYYY-MM-DD format
+            const difference = birthday - now;
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
 
-        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            document.getElementById(
+              "countdown"
+            ).innerHTML = `Only ${days} days until your special day!`;
+          }
 
-        document.getElementById(
-          "countdown"
-        ).innerHTML = `Only ${days} days until your special day!`;
+          // Call the countdown function
+          countdown();
+
+          // Display the content after 12 AM
+          setTimeout(() => {
+            document.getElementById("contentContainer").style.display = "block";
+          }, now.getTime() - new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 0, 0).getTime() + 12000); // Delay until 12 AM plus 12 seconds
+        }
       }
 
-      // Call the countdown function
-      countdown();
+      // Call the displayContent function
+      displayContent();
     </script>
   </body>
 </html>
