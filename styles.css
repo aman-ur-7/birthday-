@@ -1,0 +1,58 @@
+/* Basic reset and styles */
+body,
+h1,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Georgia", serif;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  overflow: hidden;
+}
+
+.main-heading {
+  font-size: 2.5em;
+  color: #ff6666;
+  margin-top: 50px;
+}
+
+.message {
+  padding: 50px 100px;
+  font-size: 1.2em;
+  line-height: 1.8;
+  opacity: 0;
+}
+
+.countdown {
+  font-size: 1.5em;
+  margin-top: 20px;
+  opacity: 0;
+}
+
+footer {
+  margin-top: 50px;
+  font-size: 1.2em;
+  opacity: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animated-header,
+.animated-message,
+.animated-footer {
+  animation: fadeIn 2s forwards;
+}

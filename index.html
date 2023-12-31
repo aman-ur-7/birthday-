@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday!</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="animated-header">
+      <h1 class="main-heading">Happy Birthday FIZA</h1>
+    </header>
+
+    <section class="message animated-message">
+      <p>SHONNA</p>
+      <p>
+        Today is a celebration of you—your kindness, your beauty, and your
+        loving heart.
+      </p>
+      <p>May this year be filled with joy, love, and countless blessings.</p>
+      <p>Bss ye sbb padh krr fool mat jana tum</p>
+
+      <div id="countdown" class="countdown"></div>
+    </section>
+
+    <footer class="animated-footer">
+      <p>With all my love,</p>
+      <p>Your JANNA</p>
+    </footer>
+
+    <script>
+      // Inline JavaScript for countdown
+      function countdown() {
+        const now = new Date();
+        const birthday = new Date("YYYY-MM-DD"); // Replace with her birthday in YYYY-MM-DD format
+        const difference = birthday - now;
+
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+
+        document.getElementById(
+          "countdown"
+        ).innerHTML = `Only ${days} days until your special day!`;
+      }
+
+      // Call the countdown function
+      countdown();
+    </script>
+  </body>
+</html>
